@@ -31,6 +31,11 @@ async function connectDB() {
 app.use(cors());
 app.use(express.json());
 
+// Root route so the backend base URL responds in a browser
+app.get("/", (req, res) => {
+  res.send("Gym Tracker API is running. Visit /health to verify the server.");
+});
+
 // ========== CRUD ROUTES ==========
 
 // CREATE - Add a new workout
